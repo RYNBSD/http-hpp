@@ -1,15 +1,10 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { URLSearchParams } from "node:url";
-// import { parse as parseQuery } from "node:querystring";
-
-// type PollutedParam = Record<string, string | string[] | undefined>;
 
 declare module "node:http" {
   interface IncomingMessage {
     query?: any;
-    // queryPolluted?: PollutedParam;
     body?: any;
-    // bodyPolluted?: PollutedParam;
   }
 }
 
@@ -17,11 +12,9 @@ type AccessResult = string;
 
 export type HppOptions = {
   checkQuery?: boolean;
-  // includeQueryPolluted?: boolean;
   accessQuery?: <T extends IncomingMessage>(req: T) => AccessResult;
 
   checkBody?: boolean;
-  // includeBodyPolluted?: boolean;
   accessBody?: <T extends IncomingMessage>(req: T) => AccessResult;
 };
 
@@ -40,9 +33,7 @@ function isFormUrlencoded(ct?: string): boolean {
 
 export default function hpp({
   checkQuery = true,
-  // includeQueryPolluted = false,
   checkBody = false,
-  // includeBodyPolluted = false,
   accessQuery = defaultAccessor,
   accessBody = defaultAccessor,
 }: HppOptions = {}) {
@@ -62,9 +53,6 @@ export default function hpp({
       if (!query) return next();
 
       req.query = parse(query);
-      // if (includeQueryPolluted) {
-      //   req.queryPolluted = parseQuery(query);
-      // }
     }
 
     if (
@@ -76,9 +64,6 @@ export default function hpp({
       if (!body) return next();
 
       req.body = parse(body);
-      // if (includeBodyPolluted) {
-      //   req.bodyPolluted = parseQuery(body);
-      // }
     }
 
     next();
