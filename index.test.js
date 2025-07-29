@@ -175,7 +175,7 @@ describe("HPP Middleware", () => {
 
     const endTest = process.hrtime(startTest);
     const totalDurationMs = endTest[0] * 1000 + endTest[1] / 1000000;
-    console.log(`Total performance test duration: ${totalDurationMs} ms`); // ~6 s
+    console.log(`Total performance test duration (query/body): ${totalDurationMs} ms`);
 
     const minDurationMs = allDurationsMs.reduce(
       (min, duration) => Math.min(min, duration),
@@ -222,7 +222,7 @@ describe("HPP Middleware", () => {
 
     const endTest = process.hrtime(startTest);
     const totalDurationMs = endTest[0] * 1000 + endTest[1] / 1000000;
-    console.log(`Total performance test duration: ${totalDurationMs} ms`); // ~3 s
+    console.log(`Total performance test duration (query): ${totalDurationMs} ms`);
 
     const minDurationMs = allDurationsMs.reduce(
       (min, duration) => Math.min(min, duration),
@@ -274,7 +274,7 @@ describe("HPP Middleware", () => {
 
     const endTest = process.hrtime(startTest);
     const totalDurationMs = endTest[0] * 1000 + endTest[1] / 1000000;
-    console.log(`Total performance test duration: ${totalDurationMs} ms`); // ~0.1 s
+    console.log(`Total performance test duration (body): ${totalDurationMs} ms`);
 
     const minDurationMs = allDurationsMs.reduce(
       (min, duration) => Math.min(min, duration),
