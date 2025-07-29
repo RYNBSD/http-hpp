@@ -9,12 +9,12 @@ declare module "node:http" {
     /**
      * Parsed query parameters (last value wins) from the URL search string.
      */
-    query?: Record<string, string>;
+    query?: any;
 
     /**
      * Parsed body parameters (last value wins) from a form-urlencoded POST.
      */
-    body?: Record<string, string>;
+    body?: any;
   }
 }
 
