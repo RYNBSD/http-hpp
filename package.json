@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RYNBSD/http-hpp.git"
+    "url": "git+https://github.com/RYNBSD/http-hpp.git"
   },
   "bugs": {
     "url": "https://github.com/RYNBSD/http-hpp/issues"

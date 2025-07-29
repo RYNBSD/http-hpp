@@ -17,11 +17,11 @@ type AccessResult = string;
 
 export type HppOptions = {
   checkQuery?: boolean;
-  includeQueryPolluted?: boolean;
+  // includeQueryPolluted?: boolean;
   accessQuery?: <T extends IncomingMessage>(req: T) => AccessResult;
 
   checkBody?: boolean;
-  includeBodyPolluted?: boolean;
+  // includeBodyPolluted?: boolean;
   accessBody?: <T extends IncomingMessage>(req: T) => AccessResult;
 };
 
